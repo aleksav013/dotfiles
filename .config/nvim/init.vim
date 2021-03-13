@@ -12,7 +12,7 @@ set nowrap
 set smartcase
 set noswapfile
 set nobackup
-set undodir=$XDG_CONFIG_HOME/.config/nvim/undodir
+set undodir=$XDG_CONFIG_HOME/nvim/undodir
 set undofile
 set incsearch
 set scrolloff=8
