@@ -1,0 +1,19 @@
+# Packages i use
+sudo pacman -S git zsh xorg-server xorg-xinit mpd ncmpcpp ranger firefox neovim zathura zathura-pdf-mupdf rxvt-unicode ttf-liberation mpv man youtube-dl alsa-utils htop sxiv xclip
+
+# My git repos
+cd
+mkdir mygit
+cd mygit
+git clone https://github.com/aleksav013/dwm
+git clone https://github.com/aleksav013/dotfiles
+
+# Repos i use
+cd
+mkdir git
+cd git
+git clone https://git.suckless.org/st
+git clone https://git.suckless.org/dmenu
+git clone https://github.com/simmel/urxvt-resize-font
+git clone https://aur.archlinux.org/neovim-git
+git clone https://aur.archlinux.org/nerd-fonts-inconsolata

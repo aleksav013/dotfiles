@@ -36,7 +36,7 @@
 *.color15:      #ffffff
 
 !! URxvt Apperance
-URxvt.font: xft:Liberation Mono:pixelsize=16:antialias=true
+URxvt.font: xft:Inconsolata Nerd Font Mono:style=Bold:pixelsize=16:antialias=true
 
 URxvt.letterspace: 0
 URxvt.linespace: 0

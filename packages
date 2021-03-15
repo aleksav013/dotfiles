@@ -1,3 +1,0 @@
-sudo pacman -S git zsh xorg-server xorg-xinit mpd ncmpcpp ranger firefox neovim zathura zathura-pdf-mupdf rxvt-unicode ttf-liberation mpv man youtube-dl alsa-utils
-
-#compile dmenu st dwm
