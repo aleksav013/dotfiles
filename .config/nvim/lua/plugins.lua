@@ -9,7 +9,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 return require('packer').startup(function(use)
-	use {'wbthomason/packer.nvim', opt = true}
+	use 'wbthomason/packer.nvim'
 	use "neovim/nvim-lspconfig"
 	use "hrsh7th/nvim-compe"
 	use 'hrsh7th/vim-vsnip'
