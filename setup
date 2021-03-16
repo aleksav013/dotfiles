@@ -18,8 +18,8 @@ cd dotfiles
 
 # Copy dotfiles
 cp -rf .config ~/.config
-cp -rf * ~/.
-rm -rf ~/bash*
+cp .* ~/.
+rm -rf ~/.bash*
 
 ## Repos i use
 cd
@@ -49,8 +49,9 @@ makepkg -si
 sudo npm i -g bash-language-server intelephense vscode-html-languageserver-bin
 
 # change locale and LANG
-sudo locale-gen --purge en_US.UTF-8
-echo "LANG=en_US.UTF-8" > /etc/locale.conf
+sudo echo "en_US.UTF-8" >> /etc/locale.gen
+sudo locale-gen
+sudo echo "LANG=en_US.UTF-8" > /etc/locale.conf
 
 # Reboot
 reboot
