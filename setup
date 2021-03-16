@@ -1,5 +1,5 @@
 # Packages i use
-sudo pacman -S git zsh xorg-server xorg-xinit mpd ncmpcpp ranger firefox neovim zathura zathura-pdf-mupdf rxvt-unicode ttf-liberation mpv man youtube-dl alsa-utils htop sxiv xclip
+sudo pacman -S git zsh xorg-server xorg-xinit mpd ncmpcpp ranger firefox neovim zathura zathura-pdf-mupdf rxvt-unicode ttf-liberation mpv man youtube-dl alsa-utils htop sxiv xclip neofetch
 
 # My git repos
 cd
