@@ -14,8 +14,8 @@ return require('packer').startup(function(use)
 	use "hrsh7th/nvim-compe"
 	use 'hrsh7th/vim-vsnip'
 	use 'windwp/nvim-autopairs'
-	use "kyazdani42/nvim-tree.lua"
 	use 'kyazdani42/nvim-web-devicons'
+	use "kyazdani42/nvim-tree.lua"
 --	use { 'nvim-treesitter/nvim-treesitter', run=':TSUpdate' }
 	use 'nvim-telescope/telescope.nvim'
 	use { 'romgrk/barbar.nvim', requires = 'kyazdani42/nvim-web-devicons' }
