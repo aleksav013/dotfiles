@@ -1,10 +1,14 @@
-## Packages i use
-sudo pacman -Syu git zsh xorg-server xorg-xinit mpd ncmpcpp ranger firefox zathura zathura-pdf-mupdf rxvt-unicode ttf-liberation mpv man youtube-dl alsa-utils htop sxiv xclip neofetch npm
+#!/bin/bash
+
+# Setup script for arch linux with my dotfiles
+
+# Packages i use
+sudo pacman -Syu git zsh xorg-server xorg-xinit mpd ncmpcpp ranger firefox zathura zathura-pdf-mupdf rxvt-unicode ttf-liberation mpv man youtube-dl alsa-utils htop sxiv xclip neofetch npm clang
 
 #Change shell to zsh
 chsh -s $(which zsh)
 
-## My git repos
+# My git repos
 cd
 mkdir mygit
 cd mygit
@@ -17,11 +21,11 @@ git clone https://github.com/aleksav013/dotfiles
 cd dotfiles
 
 # Copy dotfiles
-cp -rf .config ~/.config
-cp .* ~/.
+cp -rf .* ~/.
+rm -rf ~/.git
 rm -rf ~/.bash*
 
-## Repos i use
+# Repos i use
 cd
 mkdir git
 cd git

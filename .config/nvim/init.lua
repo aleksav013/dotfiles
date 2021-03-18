@@ -6,6 +6,7 @@ require('settings')
 require('nv-compe')
 require('autopairs')
 require('barbar')
+require('nvimtree')
 --require('treesitter')
 
 -- LSP
