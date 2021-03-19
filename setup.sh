@@ -21,9 +21,9 @@ git clone https://github.com/aleksav013/dotfiles
 cd dotfiles
 
 # Copy dotfiles
-cp -rf \.* ~/.
-rm -rf ~/.git
-rm -rf ~/.bash*
+cp -rf .* $HOME
+rm -rf $HOME/.git
+rm -rf $HOME/.bash*
 
 # Repos i use
 cd
@@ -50,6 +50,7 @@ cd nerd-fonts-inconsolata
 makepkg --noconfirm -si
 cd ..
 git clone https://aur.archlinux.org/lf-bin
+cd lf-bin
 makepkg --noconfirm -si
 
 # Setup LSP
