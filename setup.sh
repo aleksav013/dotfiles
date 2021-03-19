@@ -3,7 +3,7 @@
 # Setup script for arch linux with my dotfiles
 
 # Packages i use
-sudo pacman -Syu git zsh xorg-server xorg-xinit mpd ncmpcpp ranger firefox zathura zathura-pdf-mupdf rxvt-unicode ttf-liberation mpv man youtube-dl alsa-utils htop sxiv xclip neofetch npm clang
+sudo pacman --noconfirm -Syu git zsh xorg-server xorg-xinit mpd ncmpcpp firefox zathura zathura-pdf-mupdf rxvt-unicode ttf-liberation mpv man youtube-dl alsa-utils htop sxiv xclip neofetch npm clang
 
 #Change shell to zsh
 chsh -s $(which zsh)
@@ -21,7 +21,7 @@ git clone https://github.com/aleksav013/dotfiles
 cd dotfiles
 
 # Copy dotfiles
-cp -rf .* ~/.
+cp -rf \.* ~/.
 rm -rf ~/.git
 rm -rf ~/.bash*
 
@@ -43,19 +43,22 @@ mkdir -p ~/.urxvt/ext/
 cp urxvt-resize-font/resize-font ~/.urxvt/ext/
 git clone https://aur.archlinux.org/neovim-git
 cd neovim-git
-makepkg -si
+makepkg --noconfirm -si
 cd ..
 git clone https://aur.archlinux.org/nerd-fonts-inconsolata
 cd nerd-fonts-inconsolata
-makepkg -si
+makepkg --noconfirm -si
+cd ..
+git clone https://aur.archlinux.org/lf
+makepkg --noconfirm -si
 
 # Setup LSP
 sudo npm i -g bash-language-server intelephense vscode-html-languageserver-bin
 
 # change locale and LANG
-sudo echo "en_US.UTF-8" >> /etc/locale.gen
+sudo -- sh -c 'echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen'
 sudo locale-gen
-sudo echo "LANG=en_US.UTF-8" > /etc/locale.conf
+sudo -- sh -c 'echo "LANG=en_US.UTF-8" > /etc/locale.conf'
 
 # Reboot
 reboot
