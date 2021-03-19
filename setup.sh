@@ -6,7 +6,7 @@
 sudo pacman --noconfirm -Syu git zsh xorg-server xorg-xinit mpd ncmpcpp firefox zathura zathura-pdf-mupdf rxvt-unicode ttf-liberation mpv man youtube-dl alsa-utils htop sxiv xclip neofetch npm clang
 
 #Change shell to zsh
-chsh -s $(which zsh)
+sudo chsh -s $(which zsh) $USER
 
 # My git repos
 cd
@@ -49,7 +49,7 @@ git clone https://aur.archlinux.org/nerd-fonts-inconsolata
 cd nerd-fonts-inconsolata
 makepkg --noconfirm -si
 cd ..
-git clone https://aur.archlinux.org/lf
+git clone https://aur.archlinux.org/lf-bin
 makepkg --noconfirm -si
 
 # Setup LSP
