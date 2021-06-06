@@ -13,6 +13,7 @@ done
 
 # Verbosity and settings that you pretty much just always are going to want.
 alias \
+	make="make -j4" \
 	cp="cp -iv" \
 	mv="mv -iv" \
 	rm="rm -vI" \
