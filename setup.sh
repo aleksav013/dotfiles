@@ -3,7 +3,7 @@
 # Setup script for arch linux with my dotfiles
 
 # Packages i use
-sudo pacman --noconfirm -Syu git zsh xorg-server xorg-xinit mpd ncmpcpp firefox zathura zathura-pdf-mupdf rxvt-unicode ttf-liberation mpv man youtube-dl alsa-utils htop sxiv xclip neofetch npm clang
+sudo pacman --noconfirm -Syu git zsh xorg-server xorg-xinit mpd ncmpcpp firefox zathura zathura-pdf-mupdf rxvt-unicode ttf-liberation mpv man youtube-dl alsa-utils htop sxiv xclip neofetch npm clang acpilight pulseaudio pulseaudio-alsa dos2unix dosfstools
 
 #Change shell to zsh
 sudo chsh -s $(which zsh) $USER
@@ -13,11 +13,15 @@ cd
 mkdir mygit
 cd mygit
 
-git clone https://github.com/aleksav013/dwm
+git clone git@github.com:aleksav013/dwm
 cd dwm
 sudo make clean install
 cd ..
-git clone https://github.com/aleksav013/dotfiles
+git clone git@github.com:aleksav013/st
+cd st
+sudo make clean install
+cd ..
+git clone git@github.com:aleksav013/dotfiles
 cd dotfiles
 
 # Copy dotfiles
@@ -30,23 +34,12 @@ cd
 mkdir git
 cd git
 
-git clone https://git.suckless.org/st
-cd st
-sudo make clean install
-cd ..
 git clone https://git.suckless.org/dmenu
 cd dmenu
 sudo make clean install
 cd ..
-git clone https://github.com/simmel/urxvt-resize-font
-mkdir -p ~/.urxvt/ext/
-cp urxvt-resize-font/resize-font ~/.urxvt/ext/
-git clone https://aur.archlinux.org/neovim-git
-cd neovim-git
-makepkg --noconfirm -si
-cd ..
-git clone https://aur.archlinux.org/nerd-fonts-inconsolata
-cd nerd-fonts-inconsolata
+git clone https://aur.archlinux.org/neovim-nightly-bin
+cd neovim-nightly-bin
 makepkg --noconfirm -si
 cd ..
 git clone https://aur.archlinux.org/lf-bin

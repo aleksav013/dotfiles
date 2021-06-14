@@ -1,0 +1,18 @@
+#!/bin/bash
+
+file="/tmp/network"
+if ! [ -f $file ]; then
+    echo 0 > $file
+    echo 0 >> $file
+fi
+
+tx_prev=$(cat $file | sed 1q)
+rx_prev=$(cat $file | sed '2q;d')
+
+cat /sys/class/net/wlp3s0/statistics/rx_bytes > $file
+cat /sys/class/net/wlp3s0/statistics/tx_bytes >> $file
+
+tx_now=$(cat $file | sed 1q)
+rx_now=$(cat $file | sed '2q;d')
+
+echo "dw: $(((tx_now-tx_prev)/1024))kB/s, up: $(((rx_now-rx_prev)/1024))kB/s"

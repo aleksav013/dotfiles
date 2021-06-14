@@ -34,31 +34,3 @@
 ! white
 *.color7:       #c5c8c6
 *.color15:      #ffffff
-
-!! URxvt Apperance
-URxvt.font: xft:Inconsolata Nerd Font Mono:style=Bold:pixelsize=18:antialias=true
-
-URxvt.letterspace: 0
-URxvt.linespace: 0
-URxvt.geometry: 02x24
-URxvt.internalBorder: 4
-URxvt.cursorBlink: true
-URxvt.cursorUnderline: false
-URxvt.saveline: 2048
-URxvt.scrollBar: false
-URxvt.scrollBar_right: false
-URxvt.urgentOnBell: true
-URxvt.depth: 24
-URxvt.iso14755: false
-
-
-!! URxvt Functions
-URxvt.keysym.Shift-Control-V: eval:paste_clipboard
-URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
-urxvt.perl-ext-common: default,resize-font
-URxvt.keysym.C-j: resize-font:smaller
-URxvt.keysym.C-k: resize-font:bigger
-URxvt.keysym.C-equal: resize-font:reset
-
-urxvt*transparent: true
-urxvt*shading: 30
