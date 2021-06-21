@@ -1,7 +1,7 @@
 vim.cmd('set iskeyword+=-') -- treat dash separated words as a word text object"
 vim.cmd('set shortmess+=c') -- Don't pass messages to |ins-completion-menu|.
 vim.o.hidden = true -- Required to keep multiple buffers open multiple buffers
-vim.wo.wrap = false -- Display long lines as just one line
+vim.wo.wrap = true -- Display long lines as just one line
 --vim.cmd('set whichwrap+=<,>,[,],h,l') -- move to next line with theses keys
 --vim.cmd('syntax on') -- move to next line with theses keys
 vim.o.pumheight = 10 -- Makes popup menu smaller
@@ -12,7 +12,7 @@ vim.o.mouse = "a" -- Enable your mouse
 vim.o.splitbelow = true -- Horizontal splits will automatically be below
 --vim.o.termguicolors = true -- set term giu colors most terminals support this
 vim.o.splitright = true -- Vertical splits will automatically be to the right
-vim.o.t_Co = "256" -- Support 256 colors
+--vim.o.t_Co = "256" -- Support 256 colors
 vim.o.conceallevel = 0 -- So that I can see `` in markdown files
 --vim.cmd('set ts=4') -- Insert 2 spaces for a tab
 vim.cmd('set sw=4') -- Change the number of space characters inserted for indentation

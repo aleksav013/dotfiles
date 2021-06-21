@@ -3,7 +3,8 @@
 # Setup script for arch linux with my dotfiles
 
 # Packages i use
-sudo pacman --noconfirm -Syu git zsh xorg-server xorg-xinit mpd ncmpcpp firefox zathura zathura-pdf-mupdf rxvt-unicode ttf-liberation mpv man youtube-dl alsa-utils htop sxiv xclip neofetch npm clang acpilight pulseaudio pulseaudio-alsa dos2unix dosfstools
+sudo pacman --noconfirm -Syu git zsh xorg-server xorg-xinit mpd rxvt-unicode mpv man youtube-dl alsa-utils htop sxiv xclip neofetch npm clang pulseaudio pulseaudio-alsa dos2unix dosfstools ttf-liberation
+sudo pacman --noconfirm -S firefox ncmpcpp acpilight zathura zathura-pdf-mupdf
 
 #Change shell to zsh
 sudo chsh -s $(which zsh) $USER
@@ -13,18 +14,20 @@ cd
 mkdir mygit
 cd mygit
 
-git clone git@github.com:aleksav013/dwm
+git clone https://github.com/aleksav013/dwm
 cd dwm
 sudo make clean install
 cd ..
-git clone git@github.com:aleksav013/st
+git clone https://github.com:aleksav013/st
 cd st
 sudo make clean install
 cd ..
-git clone git@github.com:aleksav013/dotfiles
+git clone https://github.com/aleksav013/dwmblocks
+cd dwm
+sudo make clean install
+cd ..
+git clone https://github.com:aleksav013/dotfiles
 cd dotfiles
-
-# Copy dotfiles
 cp -rf .* $HOME
 rm -rf $HOME/.git
 rm -rf $HOME/.bash*
@@ -42,8 +45,8 @@ git clone https://aur.archlinux.org/neovim-nightly-bin
 cd neovim-nightly-bin
 makepkg --noconfirm -si
 cd ..
-git clone https://aur.archlinux.org/lf-bin
-cd lf-bin
+git clone https://aur.archlinux/org/nerd-fonts-inconsolata
+cd nerd-fonts-inconsolata
 makepkg --noconfirm -si
 
 # Setup LSP
@@ -55,4 +58,4 @@ sudo locale-gen
 sudo -- sh -c 'echo "LANG=en_US.UTF-8" > /etc/locale.conf'
 
 # Reboot
-reboot
+sudo reboot

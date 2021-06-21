@@ -1,0 +1,9 @@
+def_key "+"
+    show_clock
+def_key "="
+    volume_up
+
+def_key "j"
+    scroll_down
+def_key "k"
+    scroll_up
