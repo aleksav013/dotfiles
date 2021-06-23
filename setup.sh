@@ -1,10 +1,16 @@
 #!/bin/bash
 
-# Setup script for arch linux with my dotfiles
+### Setup script for Artix Linux with my dotfiles
 
-# Packages i use
-sudo pacman --noconfirm -Syu git zsh xorg-server xorg-xinit mpd rxvt-unicode mpv man youtube-dl alsa-utils htop xclip neofetch npm clang pulseaudio dos2unix dosfstools ttf-liberation stow firefox-esr
-sudo pacman --noconfirm -S acpilight ncmpcpp zathura zathura-pdf-mupdf pulseaudio-alsa sxiv
+## Packages i use
+
+
+#Artix repos
+sudo pacman --noconfirm -Syu git zsh xorg-server xorg-xinit mpd rxvt-unicode mpv man youtube-dl alsa-utils htop xclip neofetch npm clang pulseaudio pulseaudio-alsa dos2unix dosfstools ttf-liberation firefox-esr
+
+#Arch repos
+sudo pacman --noconfirm -S acpilight ncmpcpp zathura zathura-pdf-mupdf stow sxiv
+
 
 #Change shell to zsh
 sudo chsh -s $(which zsh) $USER
@@ -18,7 +24,7 @@ git clone https://github.com/aleksav013/dwm
 cd dwm
 sudo make clean install
 cd ..
-git clone https://github.com:aleksav013/st
+git clone https://github.com/aleksav013/st
 cd st
 sudo make clean install
 cd ..
@@ -26,13 +32,11 @@ git clone https://github.com/aleksav013/dwmblocks
 cd dwm
 sudo make clean install
 cd ..
-git clone https://github.com:aleksav013/dotfiles
+git clone https://github.com/aleksav013/dotfiles
 cd dotfiles
-stow --no-folding -t ~/.config .config
-stow --no-folding -t ~/.local .local
-stow -t ~ .gitconfig
-stow -t ~ .xprofile
-stow -t ~ .zprofile
+stow --no-folding --ignore=laptop -t ~ .
+stow --no-folding --ignore=backlight.rules -t /etc/X11/xorg.conf.d/ laptop
+stow --no-folding --ignore=30-touchpad.conf -t /etc/udev/rules.d laptop
 
 # Repos i use
 cd
@@ -47,7 +51,7 @@ git clone https://aur.archlinux.org/neovim-nightly-bin
 cd neovim-nightly-bin
 makepkg --noconfirm -si
 cd ..
-git clone https://aur.archlinux/org/nerd-fonts-inconsolata
+git clone https://aur.archlinux.org/nerd-fonts-inconsolata
 cd nerd-fonts-inconsolata
 makepkg --noconfirm -si
 
