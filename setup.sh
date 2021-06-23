@@ -3,8 +3,8 @@
 # Setup script for arch linux with my dotfiles
 
 # Packages i use
-sudo pacman --noconfirm -Syu git zsh xorg-server xorg-xinit mpd rxvt-unicode mpv man youtube-dl alsa-utils htop sxiv xclip neofetch npm clang pulseaudio pulseaudio-alsa dos2unix dosfstools ttf-liberation stow
-sudo pacman --noconfirm -S firefox ncmpcpp acpilight zathura zathura-pdf-mupdf
+sudo pacman --noconfirm -Syu git zsh xorg-server xorg-xinit mpd rxvt-unicode mpv man youtube-dl alsa-utils htop xclip neofetch npm clang pulseaudio pulseaudio-alsa dos2unix dosfstools ttf-liberation stow sxiv firefox-esr
+sudo pacman --noconfirm -S acpilight ncmpcpp zathura zathura-pdf-mupdf
 
 #Change shell to zsh
 sudo chsh -s $(which zsh) $USER
