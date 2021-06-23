@@ -3,7 +3,7 @@
 # Setup script for arch linux with my dotfiles
 
 # Packages i use
-sudo pacman --noconfirm -Syu git zsh xorg-server xorg-xinit mpd rxvt-unicode mpv man youtube-dl alsa-utils htop sxiv xclip neofetch npm clang pulseaudio pulseaudio-alsa dos2unix dosfstools ttf-liberation
+sudo pacman --noconfirm -Syu git zsh xorg-server xorg-xinit mpd rxvt-unicode mpv man youtube-dl alsa-utils htop sxiv xclip neofetch npm clang pulseaudio pulseaudio-alsa dos2unix dosfstools ttf-liberation stow
 sudo pacman --noconfirm -S firefox ncmpcpp acpilight zathura zathura-pdf-mupdf
 
 #Change shell to zsh
@@ -28,9 +28,11 @@ sudo make clean install
 cd ..
 git clone https://github.com:aleksav013/dotfiles
 cd dotfiles
-cp -rf .* $HOME
-rm -rf $HOME/.git
-rm -rf $HOME/.bash*
+stow --no-folding -t ~/.config .config
+stow --no-folding -t ~/.local .local
+stow -t ~ .gitconfig
+stow -t ~ .xprofile
+stow -t ~ .zprofile
 
 # Repos i use
 cd
