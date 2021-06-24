@@ -34,7 +34,7 @@ sudo make clean install
 cd ..
 git clone https://github.com/aleksav013/dotfiles
 cd dotfiles
-stow --no-folding --ignore=laptop -t ~ .
+stow --no-folding --ignore="laptop|setup.sh" -t ~ .
 sudo stow --no-folding --ignore=backlight.rules -t /etc/X11/xorg.conf.d/ laptop
 sudo stow --no-folding --ignore=30-touchpad.conf -t /etc/udev/rules.d laptop
 
@@ -51,12 +51,15 @@ git clone https://aur.archlinux.org/neovim-nightly-bin
 cd neovim-nightly-bin
 makepkg --noconfirm -si
 cd ..
+git clone https://aur.archlinux.org/libxft-bgra
+makepkg --noconfirm -si
+cd ..
 git clone https://aur.archlinux.org/nerd-fonts-inconsolata
 cd nerd-fonts-inconsolata
 makepkg --noconfirm -si
 
 # Setup LSP
-sudo npm i -g bash-language-server intelephense vscode-html-languageserver-bin
+sudo npm i -g bash-language-server intelephense vscode-langservers-extracted
 
 # change locale and LANG
 sudo -- sh -c 'echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen'
