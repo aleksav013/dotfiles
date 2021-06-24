@@ -9,7 +9,7 @@
 sudo pacman --noconfirm -Syu git zsh xorg-server xorg-xinit mpd rxvt-unicode mpv man youtube-dl alsa-utils htop xclip neofetch npm clang pulseaudio pulseaudio-alsa dos2unix dosfstools ttf-liberation firefox-esr
 
 #Arch repos
-sudo pacman --noconfirm -S acpilight ncmpcpp zathura zathura-pdf-mupdf stow sxiv
+sudo pacman --noconfirm -S acpilight ncmpcpp zathura zathura-pdf-mupdf stow sxiv xwallpaper xcompmgr
 
 
 #Change shell to zsh
@@ -29,14 +29,14 @@ cd st
 sudo make clean install
 cd ..
 git clone https://github.com/aleksav013/dwmblocks
-cd dwm
+cd dwmblocks
 sudo make clean install
 cd ..
 git clone https://github.com/aleksav013/dotfiles
 cd dotfiles
 stow --no-folding --ignore=laptop -t ~ .
-stow --no-folding --ignore=backlight.rules -t /etc/X11/xorg.conf.d/ laptop
-stow --no-folding --ignore=30-touchpad.conf -t /etc/udev/rules.d laptop
+sudo stow --no-folding --ignore=backlight.rules -t /etc/X11/xorg.conf.d/ laptop
+sudo stow --no-folding --ignore=30-touchpad.conf -t /etc/udev/rules.d laptop
 
 # Repos i use
 cd

@@ -1,5 +1,5 @@
 # Luke's config for the Zoomer Shell
-GPG_TTY=$TTY
+export GPG_TTY=$TTY
 
 # Enable colors and change prompt:
 autoload -U colors && colors	# Load colors

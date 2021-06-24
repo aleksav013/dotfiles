@@ -1,5 +1,8 @@
 [user]
-	email = aleksav013@gmail.com
-	name = aleksav013
-[credential]
-	username = aleksav013
+    name = Aleksa Vučković
+    email = aleksav013@gmail.com
+    signingkey = E9AA344B24998129
+[commit]
+    gpgsign = true
+[tag]
+    gpgSign = true
