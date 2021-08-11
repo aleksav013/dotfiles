@@ -6,10 +6,10 @@
 
 
 #Artix repos
-sudo pacman --noconfirm -Syu git zsh xorg-server xorg-xinit mpd rxvt-unicode mpv man youtube-dl alsa-utils htop xclip neofetch npm clang pulseaudio pulseaudio-alsa dos2unix dosfstools ttf-liberation firefox-esr ranger
+sudo pacman --noconfirm -Syu git zsh xorg-server xorg-xinit neovim mpd rxvt-unicode mpv man youtube-dl alsa-utils htop xclip neofetch npm clang pulseaudio pulseaudio-alsa dos2unix dosfstools ttf-liberation firefox-esr ranger
 
 #Arch repos
-sudo pacman --noconfirm -S acpilight ncmpcpp zathura zathura-pdf-mupdf stow sxiv xwallpaper xcompmgr ttf-joypixels
+sudo pacman --noconfirm -S acpilight ncmpcpp zathura zathura-pdf-mupdf stow sxiv xwallpaper xcompmgr ttf-joypixels pamixer
 
 
 #Change shell to zsh
@@ -35,8 +35,8 @@ cd ..
 git clone https://github.com/aleksav013/dotfiles
 cd dotfiles
 stow --no-folding --ignore="laptop|setup.sh" -t ~ .
-sudo stow --no-folding --ignore=backlight.rules -t /etc/X11/xorg.conf.d/ laptop
-sudo stow --no-folding --ignore=30-touchpad.conf -t /etc/udev/rules.d laptop
+sudo stow --no-folding --ignore="..rules" -t /etc/X11/xorg.conf.d laptop
+sudo stow --no-folding --ignore=".conf" -t /etc/udev/rules.d laptop
 
 # Repos i use
 cd
@@ -46,10 +46,6 @@ cd git
 git clone https://git.suckless.org/dmenu
 cd dmenu
 sudo make clean install
-cd ..
-git clone https://aur.archlinux.org/neovim-nightly-bin
-cd neovim-nightly-bin
-makepkg --noconfirm -si
 cd ..
 git clone https://aur.archlinux.org/libxft-bgra
 makepkg --noconfirm -si

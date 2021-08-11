@@ -2,7 +2,7 @@
 mpd_music_dir = "~/Music/"
 lyrics_directory = "~/.local/share/lyrics"
 mpd_host = "127.0.0.1"
-mpd_port = "6601"
+mpd_port = "6600"
 visualizer_in_stereo = "yes"
 visualizer_data_source = "/tmp/mpd.fifo"
 visualizer_output_name = "my_fifo"
