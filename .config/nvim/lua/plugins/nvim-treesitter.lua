@@ -1,13 +1,26 @@
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "c", "cpp" }, -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-  ignore_install = { }, -- List of parsers to ignore installing
-  highlight = {
-    enable = true,              -- false will disable the whole extension
-    disable = { },  -- list of language that will be disabled
-    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-    -- Using this option may slow down your editor, and you may see some duplicate highlights.
-    -- Instead of true it can also be a list of languages
-    additional_vim_regex_highlighting = false,
-  },
+local previewers = require('telescope.previewers')
+local Job = require('plenary.job')
+local new_maker = function(filepath, bufnr, opts)
+  filepath = vim.fn.expand(filepath)
+  Job:new({
+    command = 'file',
+    args = { '--mime-type', '-b', filepath },
+    on_exit = function(j)
+      local mime_type = vim.split(j:result()[1], '/')[1]
+      if mime_type == "text" then
+        previewers.buffer_previewer_maker(filepath, bufnr, opts)
+      else
+        -- maybe we want to write something to the buffer here
+        vim.schedule(function()
+          vim.api.nvim_buf_set_lines(bufnr, 0, -1, false, { 'BINARY' })
+        end)
+      end
+    end
+  }):sync()
+end
+
+require('telescope').setup {
+  defaults = {
+    buffer_previewer_maker = new_maker,
+  }
 }
