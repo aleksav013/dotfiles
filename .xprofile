@@ -1,18 +1,15 @@
 #!/bin/sh
 
-# This file runs when a DM logs you into a graphical session.
-# If you use startx/xinit like a Chad, this file will also be sourced.
-
 xbacklight -set 5
 pamixer --set-volume 30
-dwmblocks &
-setbg
-xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources &		# Uncomment to use Xresources colors/settings on startup
+xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources
 xmodmap -e "clear Lock" -e "keycode 0x42 = Escape"
-xcompmgr &							# xcompmgr for transparency
+xset r rate 300 50
+setbg
 mpd
-xset r rate 300 50 &						# Speed xrate up
-unclutter &							# Remove mouse when idle
+xcompmgr &
+dwmblocks &
+unclutter &
 
 # This line autostarts an instance of Pulseaudio that does not exit on idle.
 # This is "necessary" on Artix due to a current bug between PA and
