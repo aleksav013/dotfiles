@@ -9,7 +9,7 @@ unsetopt PROMPT_SP
 
 # Default programs:
 export EDITOR="nvim"
-export TERMINAL="urxvt"
+export TERMINAL="st"
 export BROWSER="firefox"
 
 # ~/ Clean-up:
@@ -29,6 +29,9 @@ export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
 export PASSWORD_STORE_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/password-store"
 #export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
 export HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/history"
+
+export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
+export SQLITE_HISTORY=$XDG_DATA_HOME/sqlite_history
 
 export TEXMFVAR=$XDG_CACHE_HOME/texlive/texmf-var
 export SSB_HOME=$XDG_DATA_HOME/zoom

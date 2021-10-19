@@ -4,12 +4,14 @@ xbacklight -set 5
 pamixer --set-volume 30
 xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources
 xmodmap -e "clear Lock" -e "keycode 0x42 = Escape"
+setxkbmap -layout us,rs,rs -variant ,yz,latinyz -option grp:shifts_toggle,grp_led:caps
 xset r rate 300 50
 setbg
 mpd
 xcompmgr &
 dwmblocks &
 unclutter &
+hdmi
 
 # This line autostarts an instance of Pulseaudio that does not exit on idle.
 # This is "necessary" on Artix due to a current bug between PA and

@@ -9,8 +9,8 @@ fi
 tx_prev=$(cat $file | sed 1q)
 rx_prev=$(cat $file | sed '2q;d')
 
-cat /sys/class/net/wlp3s0/statistics/rx_bytes > $file
-cat /sys/class/net/wlp3s0/statistics/tx_bytes >> $file
+cat /sys/class/net/wlan0/statistics/rx_bytes > $file
+cat /sys/class/net/wlan0/statistics/tx_bytes >> $file
 
 tx_now=$(cat $file | sed 1q)
 rx_now=$(cat $file | sed '2q;d')

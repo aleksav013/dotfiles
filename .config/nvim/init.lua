@@ -3,10 +3,9 @@ require('mappings')
 require('plugins')
 
 -- Plugins
-require('plugins.nvim-compe')
-require('plugins.nvim-autopairs')
-require('plugins.nvim-treesitter')
-require('plugins.nvim-bufferline')
+require('plugins.compe')
+require('plugins.autopairs')
+require('plugins.bufferline')
 
 -- LSP
 require('lsp')

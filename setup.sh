@@ -55,10 +55,10 @@ cd nerd-fonts-inconsolata
 makepkg --noconfirm -si
 
 # Setup LSP
-sudo npm i -g bash-language-server intelephense vscode-langservers-extracted
+sudo npm i -g bash-language-server vscode-langservers-extracted
 
 # change locale and LANG
-sudo -- sh -c 'echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen'
+sudo -- sh -c 'echo "en_US.UTF-8 UTF-8\nsr_RS@latin UTF-8\nsr_RS UTF-8" >> /etc/locale.gen'
 sudo locale-gen
 sudo -- sh -c 'echo "LANG=en_US.UTF-8" > /etc/locale.conf'
 
