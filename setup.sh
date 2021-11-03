@@ -6,10 +6,10 @@
 
 
 #Artix repos
-sudo pacman --noconfirm -Syu git zsh xorg-server xorg-xinit neovim mpd rxvt-unicode mpv man youtube-dl alsa-utils htop xclip neofetch npm clang pulseaudio pulseaudio-alsa dos2unix dosfstools ttf-liberation firefox-esr ranger
+sudo pacman --noconfirm -Syu git zsh xorg-server xorg-xinit neovim mpd rxvt-unicode mpv man youtube-dl alsa-utils htop xclip neofetch npm pulseaudio pulseaudio-alsa dos2unix dosfstools ttf-liberation ranger librewolf
 
 #Arch repos
-sudo pacman --noconfirm -S acpilight ncmpcpp zathura zathura-pdf-mupdf stow sxiv xwallpaper xcompmgr ttf-joypixels pamixer
+sudo pacman --noconfirm -S acpilight ncmpcpp zathura zathura-pdf-mupdf stow sxiv xwallpaper xcompmgr ttf-joypixels pamixer ccls
 
 
 #Change shell to zsh
@@ -46,13 +46,9 @@ cd git
 git clone https://git.suckless.org/dmenu
 cd dmenu
 sudo make clean install
-cd ..
-git clone https://aur.archlinux.org/libxft-bgra
-makepkg --noconfirm -si
-cd ..
-git clone https://aur.archlinux.org/nerd-fonts-inconsolata
-cd nerd-fonts-inconsolata
-makepkg --noconfirm -si
+
+# AUR
+yay -S libxft-bgra-git nerd-fonts-inconsolata
 
 # Setup LSP
 sudo npm i -g bash-language-server vscode-langservers-extracted

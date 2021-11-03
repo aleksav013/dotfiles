@@ -35,7 +35,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { "clangd", "bashls", "texlab", "html", "cssls" }
+local servers = { "bashls", "texlab", "html", "cssls" }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
@@ -44,3 +44,25 @@ for _, lsp in ipairs(servers) do
     }
   }
 end
+
+
+local lspconfig = require'lspconfig'
+lspconfig.ccls.setup {
+    on_attach = on_attach,
+    flags = {
+      debounce_text_changes = 150,
+    };
+    init_options = {
+	compilationDatabaseDirectory = "build";
+	cache = {
+	    directory = "/tmp/ccls-cache";
+	};
+	index = {
+	  threads = 0;
+	};
+	clang = {
+	  excludeArgs = { "-frounding-math"};
+	  extraArgs = { "--sysroot=/home/aleksa/mygit/mykernel/sysroot", "--gcc-toolchain=/usr/bin/i686-elf-gcc", "-ffreestanding", "-nobuiltininc"};
+	};
+    }
+}
