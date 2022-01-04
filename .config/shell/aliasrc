@@ -31,6 +31,7 @@ alias \
 
 # These common commands are just too long! Abbreviate them.
 alias \
+	sudo="doas" \
 	ka="killall" \
 	g="git" \
 	trem="transmission-remote" \

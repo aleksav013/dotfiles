@@ -2,8 +2,14 @@
 
 # profile file. Runs on login. Environmental variables are set here.
 
+# Language
+#export LANG=sr_RS.UTF-8@latin
+
 # Adds `~/.local/bin` to $PATH
 export PATH="$PATH:${$(find ~/.local/bin -type d -printf %p:)%%:}"
+
+# Runit
+#export SVDIR=~/service
 
 unsetopt PROMPT_SP
 
@@ -30,7 +36,7 @@ export PASSWORD_STORE_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/password-store"
 #export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
 export HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/history"
 
-export _JAVA_OPTIONS=-Djava.util.prefs.userRoot="$XDG_CONFIG_HOME"/java
+export _JAVA_OPTIONS="-Djava.util.prefs.userRoot=$XDG_CONFIG_HOME/java -Djavafx.cachedir=$XDG_CACHE_HOME/cache"
 export SQLITE_HISTORY=$XDG_DATA_HOME/sqlite_history
 
 export TEXMFVAR=$XDG_CACHE_HOME/texlive/texmf-var

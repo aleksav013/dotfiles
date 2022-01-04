@@ -6,7 +6,7 @@
 
 
 #Artix repos
-sudo pacman --noconfirm -Syu git zsh xorg-server xorg-xinit neovim mpd rxvt-unicode mpv man youtube-dl alsa-utils htop xclip neofetch npm pulseaudio pulseaudio-alsa dos2unix dosfstools ttf-liberation ranger librewolf
+sudo pacman --noconfirm -Syu git zsh xorg-server xorg-xinit neovim mpd mpv man alsa-utils htop xclip neofetch npm pulseaudio pulseaudio-alsa ttf-liberation ranger librewolf
 
 #Arch repos
 sudo pacman --noconfirm -S acpilight ncmpcpp zathura zathura-pdf-mupdf stow sxiv xwallpaper xcompmgr ttf-joypixels pamixer ccls
@@ -34,9 +34,11 @@ sudo make clean install
 cd ..
 git clone https://github.com/aleksav013/dotfiles
 cd dotfiles
-stow --no-folding --ignore="laptop|setup.sh" -t ~ .
-sudo stow --no-folding --ignore="..rules" -t /etc/X11/xorg.conf.d laptop
-sudo stow --no-folding --ignore=".conf" -t /etc/udev/rules.d laptop
+./sync.sh
+cd ..
+git clone https://github.com/aleksav013/nvim
+cd nvim
+./sync.sh
 
 # Repos i use
 cd

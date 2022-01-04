@@ -1,0 +1,2 @@
+status=$(cat /sys/class/drm/card1/device/power_state)
+echo $status
