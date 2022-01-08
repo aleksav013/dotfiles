@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 ### Setup script for Artix Linux with my dotfiles
 
@@ -13,41 +13,42 @@ sudo pacman --noconfirm -S acpilight ncmpcpp zathura zathura-pdf-mupdf stow sxiv
 
 
 #Change shell to zsh
-sudo chsh -s $(which zsh) $USER
+sudo chsh -s "$(which zsh)" "$USER"
 
 # My git repos
-cd
+cd || exit
 mkdir mygit
-cd mygit
+cd mygit || exit
 
 git clone https://github.com/aleksav013/dwm
-cd dwm
+cd dwm || exit
+sudo make clean install
+cd ..
+git clone https://github.com/aleksav013/dmenu
+cd dmenu || exit
 sudo make clean install
 cd ..
 git clone https://github.com/aleksav013/st
-cd st
+cd st || exit
 sudo make clean install
 cd ..
 git clone https://github.com/aleksav013/dwmblocks
-cd dwmblocks
+cd dwmblocks || exit
 sudo make clean install
 cd ..
 git clone https://github.com/aleksav013/dotfiles
-cd dotfiles
+cd dotfiles || exit
 ./sync.sh
 cd ..
 git clone https://github.com/aleksav013/nvim
-cd nvim
+cd nvim || exit
 ./sync.sh
 
 # Repos i use
-cd
+cd || exit
 mkdir git
-cd git
+cd git || exit
 
-git clone https://git.suckless.org/dmenu
-cd dmenu
-sudo make clean install
 
 # AUR
 yay -S libxft-bgra-git nerd-fonts-inconsolata
