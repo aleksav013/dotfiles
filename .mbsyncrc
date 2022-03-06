@@ -1,0 +1,24 @@
+IMAPStore aleksav013@gmail.com-remote
+Host imap.gmail.com
+Port 993
+User aleksav013@gmail.com
+PassCmd "pass aleksav013@gmail.com"
+AuthMechs LOGIN
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore aleksav013@gmail.com-local
+Subfolders Verbatim
+Path /home/aleksa/.local/share/mail/aleksav013@gmail.com/
+Inbox /home/aleksa/.local/share/mail/aleksav013@gmail.com/INBOX
+
+Channel aleksav013@gmail.com
+Expunge Both
+Far :aleksav013@gmail.com-remote:
+Near :aleksav013@gmail.com-local:
+Patterns * !"[Gmail]/All Mail"
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no
+# End profile

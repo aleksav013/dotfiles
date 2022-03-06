@@ -1,10 +1,16 @@
 [user]
-    name = Aleksa Vučković
-    email = aleksav013@gmail.com
-    signingkey = E9AA344B24998129
+	name = Aleksa Vučković
+	email = aleksav013@gmail.com
+	signingkey = E9AA344B24998129
 [commit]
-    gpgsign = true
+	gpgsign = true
 [tag]
-    gpgSign = true
+	gpgSign = true
 [pull]
 	ff = only
+[init]
+	defaultBranch = master
+[sendemail]
+	smtpserver = /usr/bin/msmtp
+[core]
+	editor = nvim
