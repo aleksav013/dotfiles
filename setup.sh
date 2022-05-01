@@ -6,7 +6,7 @@
 
 
 #Artix repos
-sudo pacman --noconfirm -Syu git zsh xorg-server xorg-xinit neovim mpd mpv man alsa-utils htop xclip neofetch npm pulseaudio pulseaudio-alsa ttf-liberation ranger librewolf
+sudo pacman --noconfirm -Syu git zsh xorg-server xorg-xinit neovim mpd mpv man alsa-utils htop xclip neofetch npm pulseaudio pulseaudio-alsa ttf-liberation librewolf
 
 #Arch repos
 sudo pacman --noconfirm -S acpilight ncmpcpp zathura zathura-pdf-mupdf stow sxiv xwallpaper xcompmgr pamixer ccls
@@ -51,7 +51,7 @@ cd git || exit
 
 
 # AUR
-yay -S libxft-bgra-git nerd-fonts-inconsolata
+yay -S libxft-bgra-git nerd-fonts-inconsolata lf-bin
 
 # Setup LSP
 sudo npm i -g bash-language-server vscode-langservers-extracted

@@ -13,6 +13,7 @@ done
 
 # Verbosity and settings that you pretty much just always are going to want.
 alias \
+	dwmsi="rm -rf config.h; sudo make clean install" \
 	make="make -j4" \
 	xclip="xclip -selection clipboard" \
 	cp="cp -iv" \

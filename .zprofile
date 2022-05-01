@@ -12,6 +12,9 @@ export PATH="$PATH:${$(find /opt/aleksa/usr/bin -type d -printf %p:)%%:}"
 # Runit
 #export SVDIR=~/service
 
+# GPU
+export LIBVA_DRIVER_NAME=i965
+
 unsetopt PROMPT_SP
 
 # Default programs:
