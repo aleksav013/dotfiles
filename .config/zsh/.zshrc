@@ -67,6 +67,7 @@ preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 #bindkey -s '^f' 'cd "$(dirname "$(fzf)")"\n'
 
 #bindkey '^[[P' delete-char
+bindkey -s '^N' '(st &) &> /dev/null\n'
 
 # Edit line in vim with ctrl-e:
 autoload edit-command-line; zle -N edit-command-line

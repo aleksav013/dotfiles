@@ -21,6 +21,7 @@ unsetopt PROMPT_SP
 export EDITOR="nvim"
 export TERMINAL="st"
 export BROWSER="librewolf"
+export OPENER="xdg-open"
 
 # ~/ Clean-up:
 export XDG_CONFIG_HOME="$HOME/.config"
