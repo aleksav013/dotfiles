@@ -1,40 +1,52 @@
 #!/bin/sh
 
-### Setup script for Artix Linux with my dotfiles
+## setup script for artix linux with my dotfiles
 
-## Packages i use
+# artix repos
+sudo pacman --noconfirm -Syu acpilight alsa-utils archlinux-keyring \
+archlinux-mirrorlist doas git htop man-db mpd mpv neofetch neovim npm \
+pulseaudio pulseaudio-alsa xclip xorg-server xorg-xinit zsh
 
+# doas.conf
+sudo -- sh -c 'printf "permit persist :wheel\n" > /etc/doas.conf'
+doas pacman --noconfirm -Rns sudo
 
-#Artix repos
-sudo pacman --noconfirm -Syu git zsh xorg-server xorg-xinit neovim mpd mpv man alsa-utils htop xclip neofetch npm pulseaudio pulseaudio-alsa ttf-liberation librewolf
+# arch repos
+doas cp -r ./artix/pacman.conf /etc/
+doas pacman --noconfirm -Syu ccls librewolf ncmpcpp pamixer stow sxiv unclutter \
+xcompmgr xwallpaper yay zathura zathura-pdf-mupdf
 
-#Arch repos
-sudo pacman --noconfirm -S acpilight ncmpcpp zathura zathura-pdf-mupdf stow sxiv xwallpaper xcompmgr pamixer ccls
+# change shell to zsh
+doas chsh -s "$(which zsh)" "$USER"
+mkdir -p ~/.cache/zsh
+doas mkdir -p /opt/aleksa/usr/bin
 
+# change locale and LANG
+doas -- sh -c 'printf "en_US.UTF-8 UTF-8\nsr_RS@latin UTF-8\nsr_RS UTF-8" >> /etc/locale.gen'
+doas locale-gen
+doas -- sh -c 'printf "LANG=en_US.UTF-8" > /etc/locale.conf'
 
-#Change shell to zsh
-sudo chsh -s "$(which zsh)" "$USER"
 
 # My git repos
 cd || exit
-mkdir mygit
+mkdir -p mygit
 cd mygit || exit
 
 git clone https://github.com/aleksav013/dwm
 cd dwm || exit
-sudo make clean install
+doas make clean install
 cd ..
 git clone https://github.com/aleksav013/dmenu
 cd dmenu || exit
-sudo make clean install
+doas make clean install
 cd ..
 git clone https://github.com/aleksav013/st
 cd st || exit
-sudo make clean install
+doas make clean install
 cd ..
 git clone https://github.com/aleksav013/dwmblocks
 cd dwmblocks || exit
-sudo make clean install
+doas make clean install
 cd ..
 git clone https://github.com/aleksav013/dotfiles
 cd dotfiles || exit
@@ -46,20 +58,19 @@ cd nvim || exit
 
 # Repos i use
 cd || exit
-mkdir git
+mkdir -p git
 cd git || exit
+
+git clone https://github.com/ujjwal96/xwinwrap
+cd xwinwrap
+doas make
+doas make install
+make clean
 
 
 # AUR
-yay -S libxft-bgra-git nerd-fonts-inconsolata lf-bin
-
-# Setup LSP
-sudo npm i -g bash-language-server vscode-langservers-extracted
-
-# change locale and LANG
-sudo -- sh -c 'echo "en_US.UTF-8 UTF-8\nsr_RS@latin UTF-8\nsr_RS UTF-8" >> /etc/locale.gen'
-sudo locale-gen
-sudo -- sh -c 'echo "LANG=en_US.UTF-8" > /etc/locale.conf'
+yay --noremovemake --nocleanafter -S lf-bin libxft-bgra-git \
+nerd-fonts-jetbrains-mono
 
 # Reboot
-sudo reboot
+doas reboot
