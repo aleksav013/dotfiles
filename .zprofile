@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/sh
 
 # profile file. Runs on login. Environmental variables are set here.
 
@@ -6,11 +6,12 @@
 #export LANG=sr_RS.UTF-8@latin
 
 # Adds `~/.local/bin` to $PATH
-export PATH="$PATH:${$(find ~/.local/bin -type d -printf %p:)%%:}"
-export PATH="$PATH:${$(find /opt/aleksa/usr/bin -type d -printf %p:)%%:}"
-
-# Runit
-#export SVDIR=~/service
+tmp1=$(find ~/.local/bin -type d -printf %p:)
+tmp2=$(find ~/.local/bin/dwmblocks -type d -printf %p:)
+tmp3=$(find /opt/aleksa/usr/bin -type d -printf %p:)
+export PATH="$PATH:${tmp1%%:}"
+export PATH="$PATH:${tmp2%%:}"
+export PATH="$PATH:${tmp3%%:}"
 
 # GPU
 export LIBVA_DRIVER_NAME=i965
@@ -40,13 +41,11 @@ export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
 export PASSWORD_STORE_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/password-store"
 #export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
 export HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/history"
-
 export _JAVA_OPTIONS="-Djava.util.prefs.userRoot=$XDG_CONFIG_HOME/java -Djavafx.cachedir=$XDG_CACHE_HOME/cache"
-export SQLITE_HISTORY=$XDG_DATA_HOME/sqlite_history
+export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite_history"
+export TEXMFVAR="$XDG_CACHE_HOME/texlive/texmf-var"
+export SSB_HOME="$XDG_DATA_HOME/zoom"
 
-export TEXMFVAR=$XDG_CACHE_HOME/texlive/texmf-var
-export SSB_HOME=$XDG_DATA_HOME/zoom
-
-[ ! -f ${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc ] && shortcuts >/dev/null 2>&1 &
+[ ! -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc" ] && shortcuts >/dev/null 2>&1 &
 
 [ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && exec startx "$XINITRC"

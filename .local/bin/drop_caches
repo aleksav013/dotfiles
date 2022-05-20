@@ -1,1 +1,3 @@
+#!/bin/sh
+
 echo 3 | doas tee /proc/sys/vm/drop_caches

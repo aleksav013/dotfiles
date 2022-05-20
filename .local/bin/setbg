@@ -3,7 +3,7 @@
 if [ -f ~/.local/share/background/hwSxB7G.jpg1 ]; then
 	xwallpaper --center ~/.local/share/background/hwSxB7G.jpg
 else
-	mpvflags=" --hwdec --loop --really-quiet --osd-level=0 --osc=no --scale=nearest "
+	mpvflags=" --hwdec --loop --no-audio --no-osd-bar --no-osc --scale=nearest --no-input-default-bindings "
 	xwinwrap -b -s -fs -st -sp -nf -ov -fdt -- \
 		mpv -wid WID $mpvflags ~/.local/share/background/wallpaper.gif &
 fi

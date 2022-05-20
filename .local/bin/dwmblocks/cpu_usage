@@ -1,0 +1,3 @@
+#!/bin/sh
+
+top -bn 1 | sed '3q;d' | awk '{print 100-$8"%"}'

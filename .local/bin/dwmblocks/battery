@@ -1,5 +1,5 @@
-#!/bin/bash
+#!/bin/sh
 
 var=$(cat /sys/class/power_supply/BAT0/status)
 battery=$(cat /sys/class/power_supply/BAT0/capacity)
-echo $var $battery%
+printf "%s %d%c" "$var" "$battery" "%"

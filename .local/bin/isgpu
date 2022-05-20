@@ -1,2 +1,7 @@
-status=$(cat /sys/class/drm/card1/device/power_state)
-echo $status
+#!/bin/sh
+
+if [ -d /sys/class/drm/card1 ]; then
+	cat /sys/class/drm/card1/device/power_state
+else
+	printf "card1 not available\n"
+fi

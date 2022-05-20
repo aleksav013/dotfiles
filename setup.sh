@@ -4,7 +4,7 @@
 
 # artix repos
 sudo pacman --noconfirm -Syu acpilight alsa-utils archlinux-keyring \
-archlinux-mirrorlist doas git htop man-db mpd mpv neofetch neovim npm \
+archlinux-mirrorlist doas git htop maim man-db mpd mpv neofetch neovim npm \
 pulseaudio pulseaudio-alsa xclip xorg-server xorg-xinit zsh
 
 # doas.conf
