@@ -62,7 +62,7 @@ mkdir -p git
 cd git || exit
 
 git clone https://github.com/ujjwal96/xwinwrap
-cd xwinwrap
+cd xwinwrap || exit
 doas make
 doas make install
 make clean

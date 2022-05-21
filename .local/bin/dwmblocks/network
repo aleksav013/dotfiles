@@ -2,7 +2,7 @@
 
 # 1 for bytes
 # 0 for bits
-bytes=0
+bytes=1
 
 # 1 for kibi, mebi, gibi, tebi, peti
 # 0 for kilo, mega, giga, tera, peta
