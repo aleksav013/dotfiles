@@ -3,9 +3,10 @@
 ## setup script for artix linux with my dotfiles
 
 # artix repos
-sudo pacman --noconfirm -Syu acpilight alsa-utils archlinux-keyring \
-archlinux-mirrorlist doas git htop maim man-db mpd mpv neofetch neovim npm \
-pulseaudio pulseaudio-alsa xclip xorg-server xorg-xinit zsh
+sudo pacman --noconfirm -Syu \
+acpilight alsa-utils archlinux-keyring archlinux-mirrorlist chrony-s6 doas git \
+htop maim man-db mpd mpv neofetch neovim npm pulseaudio pulseaudio-alsa xclip \
+xorg-server xorg-xinit zsh
 
 # doas.conf
 sudo -- sh -c 'printf "permit persist :wheel\n" > /etc/doas.conf'
@@ -13,8 +14,9 @@ doas pacman --noconfirm -Rns sudo
 
 # arch repos
 doas cp -r ./artix/pacman.conf /etc/
-doas pacman --noconfirm -Syu ccls librewolf ncmpcpp pamixer stow sxiv unclutter \
-xcompmgr xwallpaper yay zathura zathura-pdf-mupdf
+doas pacman --noconfirm -Syu \
+ccls librewolf ncmpcpp pamixer perl-file-mimeinfo stow sxiv unclutter xcompmgr \
+xwallpaper yay zathura zathura-pdf-mupdf
 
 # change shell to zsh
 doas chsh -s "$(which zsh)" "$USER"

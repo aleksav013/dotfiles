@@ -16,6 +16,9 @@ export PATH="$PATH:${tmp3%%:}"
 # GPU
 export LIBVA_DRIVER_NAME=i965
 
+# mimeapps
+export XDG_UTILS_DEBUG_LEVEL=2
+
 unsetopt PROMPT_SP
 
 # Default programs:
