@@ -1,0 +1,3 @@
+#!/bin/sh
+
+doas sshfs -o allow_other,IdentityFile=/home/aleksa/.ssh/id_rsa,port=2222 aleksa@ostoja_server:/home/aleksa /mnt/ostoja_server

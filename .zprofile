@@ -9,9 +9,11 @@
 tmp1=$(find ~/.local/bin -type d -printf %p:)
 tmp2=$(find ~/.local/bin/dwmblocks -type d -printf %p:)
 tmp3=$(find /opt/aleksa/usr/bin -type d -printf %p:)
+tmp4=$(find ~/.local/bin/asm -type d -printf %p:)
 export PATH="$PATH:${tmp1%%:}"
 export PATH="$PATH:${tmp2%%:}"
 export PATH="$PATH:${tmp3%%:}"
+export PATH="$PATH:${tmp4%%:}"
 
 # GPU
 export LIBVA_DRIVER_NAME=i965
@@ -48,6 +50,7 @@ export _JAVA_OPTIONS="-Djava.util.prefs.userRoot=$XDG_CONFIG_HOME/java -Djavafx.
 export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite_history"
 export TEXMFVAR="$XDG_CACHE_HOME/texlive/texmf-var"
 export SSB_HOME="$XDG_DATA_HOME/zoom"
+export ANDROID_HOME="$XDG_DATA_HOME"/android
 
 [ ! -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc" ] && shortcuts >/dev/null 2>&1 &
 
