@@ -21,7 +21,6 @@ alias \
 	rm="rm -vI" \
 	bc="bc -ql" \
 	mkd="mkdir -pv" \
-	viber="QTWEBENGINE_DISABLE_SANDBOX=1 viber" \
 	wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts" \
 	xbindkeys="xbindkeys -f $XDG_CONFIG_HOME/xbindkeys/config" \
 	irssi="irssi --config=$XDG_CONFIG_HOME/irssi/config --home="$XDG_DATA_HOME"/irssi" \
