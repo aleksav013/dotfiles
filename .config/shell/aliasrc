@@ -21,6 +21,7 @@ alias \
 	rm="rm -vI" \
 	bc="bc -ql" \
 	mkd="mkdir -pv" \
+	discord='DBUS_SESSION_BUS_ADDRESS="autolaunch:" BROWSER="chromium" discord' \
 	wget="wget --hsts-file=$XDG_DATA_HOME/wget-hsts" \
 	xbindkeys="xbindkeys -f $XDG_CONFIG_HOME/xbindkeys/config" \
 	irssi="irssi --config=$XDG_CONFIG_HOME/irssi/config --home="$XDG_DATA_HOME"/irssi" \
