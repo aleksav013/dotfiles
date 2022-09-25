@@ -8,12 +8,8 @@
 # Adds `~/.local/bin` to $PATH
 tmp1=$(find ~/.local/bin -type d -printf %p:)
 tmp2=$(find ~/.local/bin/dwmblocks -type d -printf %p:)
-tmp3=$(find /opt/aleksa/usr/bin -type d -printf %p:)
-tmp4=$(find ~/.local/bin/asm -type d -printf %p:)
 export PATH="$PATH:${tmp1%%:}"
 export PATH="$PATH:${tmp2%%:}"
-export PATH="$PATH:${tmp3%%:}"
-export PATH="$PATH:${tmp4%%:}"
 
 # GPU
 export LIBVA_DRIVER_NAME=i965

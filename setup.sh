@@ -3,25 +3,27 @@
 ## setup script for artix linux with my dotfiles
 
 # artix repos
+sudo sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 5/' /etc/pacman.conf
+printf '\n[universe]\nServer = https://universe.artixlinux.org/$arch' | sudo tee -a /etc/pacman.conf > /dev/null
 sudo pacman --noconfirm -Syu \
 acpilight alsa-utils archlinux-keyring archlinux-mirrorlist chrony-s6 doas git \
-htop maim man-db mpd mpv neofetch neovim npm pulseaudio pulseaudio-alsa xclip \
-xorg-server xorg-xinit zsh
+htop libxft maim man-db mpd mpv neofetch neovim npm openssh pulseaudio \
+pulseaudio-alsa xclip xorg-server xorg-xinit xwallpaper zsh
 
 # doas.conf
 sudo -- sh -c 'printf "permit persist :wheel\n" > /etc/doas.conf'
 doas pacman --noconfirm -Rns sudo
+doas usermod -a -G video "$(whoami)"
 
 # arch repos
-doas cp -r ./artix/pacman.conf /etc/
+printf '\n\n[extra]\nInclude = /etc/pacman.d/mirrorlist-arch\n\n[community]\nInclude = /etc/pacman.d/mirrorlist-arch' | doas tee -a /etc/pacman.conf > /dev/null
 doas pacman --noconfirm -Syu \
 ccls librewolf ncmpcpp pamixer perl-file-mimeinfo stow sxiv unclutter xcompmgr \
-xwallpaper yay zathura zathura-pdf-mupdf
+yay zathura zathura-pdf-mupdf
 
 # change shell to zsh
 doas chsh -s "$(which zsh)" "$USER"
 mkdir -p ~/.cache/zsh
-doas mkdir -p /opt/aleksa/usr/bin
 
 # change locale and LANG
 doas -- sh -c 'printf "en_US.UTF-8 UTF-8\nsr_RS@latin UTF-8\nsr_RS UTF-8" >> /etc/locale.gen'
@@ -69,10 +71,9 @@ doas make
 doas make install
 make clean
 
-
 # AUR
-yay --noremovemake --nocleanafter -S lf-bin libxft-bgra-git \
-nerd-fonts-jetbrains-mono
+yay --noremovemake --nocleanafter -S \
+lf-bin nerd-fonts-jetbrains-mono
 
 # Reboot
 doas reboot
