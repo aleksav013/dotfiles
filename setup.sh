@@ -6,9 +6,9 @@
 sudo sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 5/' /etc/pacman.conf
 printf '\n[universe]\nServer = https://universe.artixlinux.org/$arch' | sudo tee -a /etc/pacman.conf > /dev/null
 sudo pacman --noconfirm -Syu \
-acpilight alsa-utils archlinux-keyring archlinux-mirrorlist chrony-s6 doas git \
-htop libxft maim man-db mpd mpv neofetch neovim npm openssh pulseaudio \
-pulseaudio-alsa xclip xorg-server xorg-xinit xwallpaper zsh
+acpilight alsa-utils archlinux-keyring archlinux-mirrorlist chrony-s6 doas \
+git htop libxft maim man-db man-pages mpd mpv neofetch neovim npm openssh \
+pulseaudio pulseaudio-alsa xclip xorg-server xorg-xinit xwallpaper zsh
 
 # doas.conf
 sudo -- sh -c 'printf "permit persist :wheel\n" > /etc/doas.conf'
