@@ -14,5 +14,19 @@ from aleksav013@gmail.com
 user aleksav013@gmail.com
 passwordeval "pass aleksav013@gmail.com"
 
+# vuckovic.cc
+account aleksa@vuckovic.cc
+host mail.vuckovic.cc
+port 465
+from aleksa@vuckovic.cc
+user aleksa@vuckovic.cc
+passwordeval "pass aleksa@vuckovic.cc"
+auth on
+tls on
+tls_trust_file	/etc/ssl/certs/ca-certificates.crt
+logfile /home/aleksa/.cache/msmtp/msmtp.log
+tls_starttls off
+
 # Set a default account
-account default : aleksav013@gmail.com
+account default : aleksa@vuckovic.cc
+

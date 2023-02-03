@@ -1,6 +1,7 @@
 source /usr/local/share/mutt-wizard/mutt-wizard.muttrc
-source /home/aleksa/.config/mutt/accounts/aleksav013@gmail.com.muttrc
-macro index,pager i1 '<sync-mailbox><enter-command>source /home/aleksa/.config/mutt/accounts/aleksav013@gmail.com.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to aleksav013@gmail.com"
+source /home/aleksa/.config/mutt/accounts/aleksa@vuckovic.cc.muttrc
+macro index,pager i1 '<sync-mailbox><enter-command>source /home/aleksa/.config/mutt/accounts/aleksa@vuckovic.cc.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to aleksa@vuckovic.cc"
+macro index,pager i2 '<sync-mailbox><enter-command>source /home/aleksa/.config/mutt/accounts/aleksav013@gmail.com.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to aleksav013@gmail.com"
 
 unbind * r
 bind index,pager r group-chat-reply

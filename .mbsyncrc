@@ -22,3 +22,29 @@ SyncState *
 MaxMessages 0
 ExpireUnread no
 # End profile
+
+IMAPStore aleksa@vuckovic.cc-remote
+Host mail.vuckovic.cc
+Port 993
+User aleksa@vuckovic.cc
+PassCmd "pass aleksa@vuckovic.cc"
+AuthMechs LOGIN
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore aleksa@vuckovic.cc-local
+Subfolders Verbatim
+Path /home/aleksa/.local/share/mail/aleksa@vuckovic.cc/
+Inbox /home/aleksa/.local/share/mail/aleksa@vuckovic.cc/INBOX
+
+Channel aleksa@vuckovic.cc
+Expunge Both
+Far :aleksa@vuckovic.cc-remote:
+Near :aleksa@vuckovic.cc-local:
+Patterns * !"[Gmail]/All Mail"
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no
+# End profile
+

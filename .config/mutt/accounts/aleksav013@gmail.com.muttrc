@@ -1,9 +1,9 @@
 # vim: filetype=neomuttrc
 # muttrc file for account aleksav013@gmail.com
-set realname = "Aleksa Vučković"
+set realname = "Aleksa Vuckovic"
 set from = "aleksav013@gmail.com"
 set sendmail = "msmtp -a aleksav013@gmail.com"
-alias me Aleksa Vučković <aleksav013@gmail.com>
+alias me Aleksa Vuckovic <aleksav013@gmail.com>
 set folder = "/home/aleksa/.local/share/mail/aleksav013@gmail.com"
 set header_cache = /home/aleksa/.cache/mutt-wizard/aleksav013@gmail.com/headers
 set message_cachedir = /home/aleksa/.cache/mutt-wizard/aleksav013@gmail.com/bodies
@@ -15,8 +15,18 @@ set postponed = "=[Gmail]/Drafts"
 set trash = "=[Gmail]/Trash"
 #set record = "=[Gmail]/Sent Mail"
 
+set crypt_use_gpgme = yes
+set postpone_encrypt = yes
+set pgp_self_encrypt = yes
+set crypt_use_pka = no
+set crypt_autosign = no
+set crypt_autoencrypt = no
+set crypt_autopgp = yes
+set pgp_sign_as = 0xF7617F0513F87903
+
+
 macro index o "<shell-escape>mw -y aleksav013@gmail.com<enter>" "run mbsync to sync aleksav013@gmail.com"
 macro index \eg "<enter-command>unset wait_key<enter><shell-escape>gpg --list-secret-keys; printf 'Enter email ID of user to publish: '; read eID; printf 'Enter fingerprint of GPG key to publish: '; read eFGPT; /usr/local/libexec/gpg-wks-client --create \$eFGPT \$eID | msmtp --read-envelope-from --read-recipients -a aleksav013@gmail.com<enter>"  "publish GPG key to WKS provider"
 macro index \eh "<pipe-message>/usr/local/libexec/gpg-wks-client --receive | msmtp --read-envelope-from --read-recipients -a aleksav013@gmail.com<enter>" "confirm GPG publication"
 
-mailboxes "=INBOX" "=[Gmail]/Sent Mail" "=[Gmail]/Drafts" "=[Gmail]/Starred" "=[Gmail]/Important" "=[Gmail]/Chats" "=[Gmail]/Spam" "=[Gmail]/Trash"
+mailboxes "=INBOX" "=[Gmail]/Sent Mail" "=[Gmail]/Drafts" "=[Gmail]/Starred" "=[Gmail]/Important" "=[Gmail]/Spam" "=[Gmail]/Trash"

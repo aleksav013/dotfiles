@@ -1,7 +1,7 @@
 [user]
 	name = Aleksa Vuckovic
-	email = aleksav013@gmail.com
-	signingkey = E9AA344B24998129
+	email = aleksa@vuckovic.cc
+	signingkey = 2ED293D4EEE7CE56
 [commit]
 	gpgsign = true
 [tag]

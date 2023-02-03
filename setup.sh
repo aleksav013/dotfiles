@@ -3,17 +3,17 @@
 ## setup script for artix linux with my dotfiles
 
 # artix repos
-sudo sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 5/' /etc/pacman.conf
-printf '\n[universe]\nServer = https://universe.artixlinux.org/$arch' | sudo tee -a /etc/pacman.conf > /dev/null
+sudo sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 5/' /etc/pacman.conf || exit
+printf '\n[universe]\nServer = https://universe.artixlinux.org/$arch' | sudo tee -a /etc/pacman.conf > /dev/null || exit
 sudo pacman --noconfirm -Syu \
 acpilight alsa-utils archlinux-keyring archlinux-mirrorlist chrony-s6 doas \
 git htop libxft maim man-db man-pages mpd mpv neofetch neovim npm openssh \
-pulseaudio pulseaudio-alsa xclip xorg-server xorg-xinit xwallpaper zsh
+pulseaudio pulseaudio-alsa xclip xorg-server xorg-xinit xwallpaper zsh || exit
 
 # doas.conf
-sudo -- sh -c 'printf "permit persist :wheel\n" > /etc/doas.conf'
-doas pacman --noconfirm -Rns sudo
-doas usermod -a -G video "$(whoami)"
+sudo -- sh -c 'printf "permit persist :wheel\n" > /etc/doas.conf' || exit
+doas pacman --noconfirm -Rns sudo || exit
+doas usermod -a -G video "$(whoami)" || exit
 
 # arch repos
 printf '\n\n[extra]\nInclude = /etc/pacman.d/mirrorlist-arch\n\n[community]\nInclude = /etc/pacman.d/mirrorlist-arch' | doas tee -a /etc/pacman.conf > /dev/null
