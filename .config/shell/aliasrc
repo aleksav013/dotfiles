@@ -40,4 +40,5 @@ alias \
 	e="$EDITOR" \
 	v="$EDITOR" \
 	p="pacman" \
-	z="zathura"
+	z="zathura" \
+	ranger="lf"

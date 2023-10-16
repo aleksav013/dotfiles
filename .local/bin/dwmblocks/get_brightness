@@ -2,4 +2,4 @@
 
 brightness=$(xbacklight -get)
 
-printf "\uf5df %d%c" "$brightness" '%'
+printf "󰃠 %d%c" "$brightness" '%'

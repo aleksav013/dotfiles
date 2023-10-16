@@ -1,7 +1,7 @@
 #!/bin/sh
 
-if [ -f ~/.local/share/background/hwSxB7G.jpg1 ]; then
-	xwallpaper --center ~/.local/share/background/hwSxB7G.jpg
+if [ -f ~/.local/share/background/unnamed.jpg1 ]; then
+	xwallpaper --center ~/.local/share/background/unnamed.jpg
 else
 	mpvflags=" --hwdec --loop --no-audio --no-osd-bar --no-osc --scale=nearest --no-input-default-bindings "
 	xwinwrap -b -s -fs -st -sp -nf -ov -fdt -- \

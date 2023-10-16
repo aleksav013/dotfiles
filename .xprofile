@@ -12,6 +12,7 @@ mpd
 xcompmgr &
 dwmblocks &
 unclutter &
+xautolock -time 10 -locker slock &
 hdmi
 
 # This line autostarts an instance of Pulseaudio that does not exit on idle.

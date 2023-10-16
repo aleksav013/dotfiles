@@ -6,5 +6,5 @@ EXT=$(xrandr | grep "HDMI" | grep " connected" | sed -e "s/\([A-Z0-9]\+\) connec
 if (xrandr | grep "$EXT disconnected"); then
     xrandr --output "$EXT" --off --output "$IN" --auto
 else
-    xrandr --output "$IN" --off --output "$EXT" --auto
+    xrandr --output "$IN" --off --output "$EXT" --mode "1920x1080"
 fi

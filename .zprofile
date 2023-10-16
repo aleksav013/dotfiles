@@ -47,6 +47,9 @@ export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite_history"
 export TEXMFVAR="$XDG_CACHE_HOME/texlive/texmf-var"
 export SSB_HOME="$XDG_DATA_HOME/zoom"
 export ANDROID_HOME="$XDG_DATA_HOME"/android
+export PICO_SDK_PATH="$HOME"/git/pico-sdk
+export _JAVA_AWT_WM_NONREPARENTING=1
+export NODE_OPTIONS=--max_old_space_size=4096
 
 [ ! -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc" ] && shortcuts >/dev/null 2>&1 &
 
