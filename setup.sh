@@ -43,6 +43,7 @@ install_packages() {
 		pulseaudio-alsa \
 		stow \
 		sxiv \
+		ttf-jetbrains-mono-nerd \
 		unclutter \
 		xclip \
 		xcompmgr \
@@ -58,7 +59,7 @@ install_packages() {
 
 doas_conf() {
 	sudo -- sh -c 'printf "permit persist :wheel\n" > /etc/doas.conf'
-	doas usermod -a -G video disk wheel "$(whoami)"
+	doas usermod -a -G video,disk,wheel "$(whoami)"
 }
 
 libxft_bgra() {

@@ -19,9 +19,9 @@ fi
 tx_prev=$(cat $file | sed 1q)
 rx_prev=$(cat $file | sed '2q;d')
 
-if [ -d /sys/class/net/wlan0 ]; then
-	cat /sys/class/net/wlan0/statistics/rx_bytes > $file
-	cat /sys/class/net/wlan0/statistics/tx_bytes >> $file
+if [ -d /sys/class/net/wlp8s0 ]; then
+	cat /sys/class/net/wlp8s0/statistics/rx_bytes > $file
+	cat /sys/class/net/wlp8s0/statistics/tx_bytes >> $file
 else
 	cat /sys/class/net/eth0/statistics/rx_bytes > $file
 	cat /sys/class/net/eth0/statistics/tx_bytes >> $file
