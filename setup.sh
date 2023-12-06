@@ -39,12 +39,15 @@ install_packages() {
 		openssh \
 		pamixer \
 		perl-file-mimeinfo \
-		pulseaudio \
+		pipewire \
+		pipewire-jack \
+		pipewire-pulse \
 		pulseaudio-alsa \
 		stow \
 		sxiv \
 		ttf-jetbrains-mono-nerd \
 		unclutter \
+		wireplumber \
 		xclip \
 		xcompmgr \
 		xorg-server \
@@ -112,6 +115,8 @@ mygit() {
 	git clone https://github.com/aleksav013/nvim
 	cd nvim
 	./sync.sh
+	cd ..
+
 	cd
 }
 
@@ -125,6 +130,12 @@ other_repos() {
 	doas make
 	doas make install
 	make clean
+	cd ..
+
+	git clone https://github.com/LukeSmithxyz/mutt-wizard
+	sudo make install
+	cd ..
+
 	cd
 }
 

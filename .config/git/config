@@ -14,3 +14,10 @@
 	smtpserver = /usr/bin/msmtp
 [core]
 	editor = nvim
+[credential]
+	useHttpPath = true
+	helper = store
+[credential "http://129.241.150.103"]
+	username = ecsc-team-account-6
+[credential "http://10.10.24.33:3000"]
+	username = aleksav013

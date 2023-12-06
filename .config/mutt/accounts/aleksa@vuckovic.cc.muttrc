@@ -24,7 +24,7 @@ set crypt_autoencrypt = no
 set crypt_autopgp = yes
 set pgp_sign_as = 0x2ED293D4EEE7CE56
 
-macro index o "<shell-escape>mw -y aleksa@vuckovic.cc<enter>" "run mbsync to sync aleksa@vuckovic.cc"
+macro index o "<shell-escape>mailsync aleksa@vuckovic.cc<enter>" "run mailsync to sync aleksa@vuckovic.cc"
 macro index \eg "<enter-command>unset wait_key<enter><shell-escape>gpg --list-secret-keys; printf 'Enter email ID of user to publish: '; read eID; printf 'Enter fingerprint of GPG key to publish: '; read eFGPT; /usr/local/libexec/gpg-wks-client --create \$eFGPT \$eID | msmtp --read-envelope-from --read-recipients -a aleksa@vuckovic.cc<enter>"  "publish GPG key to WKS provider"
 macro index \eh "<pipe-message>/usr/local/libexec/gpg-wks-client --receive | msmtp --read-envelope-from --read-recipients -a aleksa@vuckovic.cc<enter>" "confirm GPG publication"
 

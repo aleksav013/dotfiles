@@ -1,6 +1,6 @@
 #!/bin/sh
 
-xbacklight -set 5
+xbacklight -set 30
 pamixer --set-volume 30
 xrdb "${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources"
 setxkbmap -layout us,rs,rs -variant ' ,latin' -option grp:shifts_toggle,grp_led:caps
@@ -12,6 +12,7 @@ mpd
 xcompmgr &
 dwmblocks &
 unclutter &
+scream -i virbr0 -o jack &
 xautolock -time 10 -locker slock &
 hdmi
 
