@@ -33,6 +33,62 @@ alias \
 	grep="grep --color=auto" \
 	diff="diff --color=auto" \
 
+cd_os1_np() {
+	cd /libvirt/debian/home/aleksa/os1_np || exit
+}
+
+os1_np() {
+	sudo arch-chroot /libvirt/debian /usr/bin/su aleksa -c '/bin/bash -c "cd ~/os1_np; make qemu"'
+}
+
+cd_eliyah_os1() {
+	cd /libvirt/debian/home/aleksa/eliyah_os1 || exit
+}
+
+eliyah_os1() {
+	sudo arch-chroot /libvirt/debian /usr/bin/su aleksa -c '/bin/bash -c "cd ~/eliyah_os1; make qemu"'
+}
+
+cd_ivana_os1() {
+	cd /libvirt/debian/home/aleksa/ivana/os1 || exit
+}
+
+ivana_os1() {
+	sudo arch-chroot /libvirt/debian /usr/bin/su aleksa -c '/bin/bash -c "cd ~/ivana/os1; make qemu"'
+}
+
+ivana_os1gdb() {
+	sudo arch-chroot /libvirt/debian /usr/bin/su aleksa -c '/bin/bash -c "cd ~/ivana/os1; make qemu-gdb"'
+}
+
+cd_os1() {
+	cd /libvirt/debian/home/aleksa/os1 || exit
+}
+
+os1() {
+	sudo arch-chroot /libvirt/debian /usr/bin/su aleksa -c '/bin/bash -c "cd ~/os1; make qemu"'
+}
+
+os1gdb() {
+	sudo arch-chroot /libvirt/debian /usr/bin/su aleksa -c '/bin/bash -c "cd ~/os1; make qemu-gdb"'
+}
+
+cd_pokazni_os1() {
+	cd /libvirt/debian/home/aleksa/pokazni_os1 || exit
+}
+
+pokazni_os1() {
+	sudo arch-chroot /libvirt/debian /usr/bin/su aleksa -c '/bin/bash -c "cd ~/pokazni_os1; make qemu"'
+}
+
+cd_os1_stari() {
+	cd /libvirt/debian/home/aleksa/os1_stari || exit
+}
+
+os1_stari() {
+	sudo arch-chroot /libvirt/debian /usr/bin/su aleksa -c '/bin/bash -c "cd ~/os1_stari; make qemu"'
+}
+
 # These common commands are just too long! Abbreviate them.
 alias \
 	sudo="doas" \
@@ -41,4 +97,6 @@ alias \
 	v="$EDITOR" \
 	p="pacman" \
 	z="zathura" \
-	ranger="lf"
+	ranger="lf" \
+	gdb="gdb -x ~/gdbinit" \
+	htop="htop --tree"

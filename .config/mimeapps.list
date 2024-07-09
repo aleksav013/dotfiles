@@ -2017,3 +2017,5 @@ x-conference/x-cooltalk=nvim.desktop
 x-epoc/x-sisx-app=nvim.desktop
 x-scheme-handler/viber=viber.desktop
 x-scheme-handler/msteams=teams.desktop
+x-scheme-handler/jetbrains=jetbrains-toolbox.desktop
+x-scheme-handler/eclipse+command x-scheme-handler/eclipse+mpc=_usr_lib_eclipse_.desktop

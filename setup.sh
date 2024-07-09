@@ -39,6 +39,7 @@ install_packages() {
 		openssh \
 		pamixer \
 		perl-file-mimeinfo \
+		picom \
 		pipewire \
 		pipewire-jack \
 		pipewire-pulse \
@@ -49,7 +50,6 @@ install_packages() {
 		unclutter \
 		wireplumber \
 		xclip \
-		xcompmgr \
 		xorg-server \
 		xorg-util-macros \
 		xorg-xinit \
