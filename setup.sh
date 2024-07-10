@@ -16,7 +16,7 @@ pacman_conf() {
 }
 
 install_packages() {
-	yay --noremovemake --nocleanafter --noconfirm -Syu \
+	yay --noremovemake --noconfirm -Syu \
 		acpilight \
 		alsa-utils \
 		ccls \
@@ -41,7 +41,6 @@ install_packages() {
 		perl-file-mimeinfo \
 		picom \
 		pipewire \
-		pipewire-jack \
 		pipewire-pulse \
 		pulseaudio-alsa \
 		stow \
@@ -58,6 +57,9 @@ install_packages() {
 		zathura \
 		zathura-pdf-mupdf \
 		zsh
+
+	# conflict pipewire-jack & jack2
+	yay --noremovemake -Syu pipewire-jack
 }
 
 doas_conf() {
@@ -133,7 +135,8 @@ other_repos() {
 	cd ..
 
 	git clone https://github.com/LukeSmithxyz/mutt-wizard
-	sudo make install
+	cd mutt-wizard
+	doas make install
 	cd ..
 
 	cd
