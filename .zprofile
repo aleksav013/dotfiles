@@ -10,11 +10,19 @@ tmp1=$(find ~/.local/bin -type d -printf %p:)
 tmp2=$(find ~/.local/bin/dwmblocks -type d -printf %p:)
 tmp3=$(find ~/.cargo/bin -type d -printf %p:)
 tmp4=$(find ~/.local/bin/jetbrains -type d -printf %p:)
+tmp5=$(find /opt/riscv/bin -type d -printf %p:)
+tmp6=$(find ~/files/idapro-9.0/ -type d -printf %p:)
+tmp7=$(find ~/.local/share/gem/ruby/3.3.0/bin -type d -printf %p:)
+tmp8=$(find ~/.config/composer/vendor/bin -type d -printf %p:)
 
 export PATH="$PATH:${tmp1%%:}"
 export PATH="$PATH:${tmp2%%:}"
 export PATH="$PATH:${tmp3%%:}"
 export PATH="$PATH:${tmp4%%:}"
+export PATH="$PATH:${tmp5%%:}"
+export PATH="$PATH:${tmp6%%:}"
+export PATH="$PATH:${tmp7%%:}"
+export PATH="$PATH:${tmp8%%:}"
 
 # GPU
 export LIBVA_DRIVER_NAME=i965
@@ -55,6 +63,7 @@ export ANDROID_HOME="$XDG_DATA_HOME"/android
 export PICO_SDK_PATH="$HOME"/git/pico-sdk
 export _JAVA_AWT_WM_NONREPARENTING=1
 export NODE_OPTIONS=--max_old_space_size=4096
+export PWNDBG_NO_AUTOUPDATE=true
 
 [ ! -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc" ] && shortcuts >/dev/null 2>&1 &
 

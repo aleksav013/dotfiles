@@ -1,0 +1,33 @@
+#!/bin/sh
+
+MAC="E8:ED:45:01:95:F8"
+
+DEVICE_PATH="/org/bluez/hci0/dev_$(echo "$MAC" | tr ':' '_')"
+BATTERY_LEVEL_UUID="00002a19-0000-1000-8000-00805f9b34fb"
+
+CHAR_PATHS=$(busctl tree org.bluez | grep -o "$DEVICE_PATH/service[0-9a-f]*/char[0-9a-f]*$")
+
+BATTERY_INFO=""
+CNT=0
+
+for CHAR_PATH in $CHAR_PATHS; do
+	UUID=$(busctl --system get-property org.bluez "$CHAR_PATH" org.bluez.GattCharacteristic1 UUID 2>/dev/null | sed -n 's/.*"\(.*\)".*/\1/p')
+
+	if [ "$UUID" = "$BATTERY_LEVEL_UUID" ]; then
+
+		if [ ! "$CNT" -eq 0 ]; then
+			BATTERY_INFO="$BATTERY_INFO "
+		fi
+
+		CNT=$(("$CNT" + 1))
+		VALUE=$(busctl --system call org.bluez "$CHAR_PATH" org.bluez.GattCharacteristic1 ReadValue "a{sv}" 0 | awk '{print $3}')
+		BATTERY_INFO="${BATTERY_INFO}KB$CNT:${VALUE}%"
+	fi
+done
+
+if [ "$CNT" -eq 0 ]; then
+	BATTERY=$(busctl --system get-property org.bluez "$DEVICE_PATH" org.bluez.Battery1 Percentage 2>/dev/null)
+	echo "$BATTERY" | grep -q "^y" && echo "KB:${BATTERY#* }%"
+else
+	echo "$BATTERY_INFO" | sed '${/^$/d;}'
+fi
