@@ -16,15 +16,13 @@ pacman_conf() {
 }
 
 install_packages() {
-	yay --noremovemake --noconfirm -Syu \
-		acpilight \
+	# Official repo packages
+	sudo pacman -Syu --needed --noconfirm \
 		alsa-utils \
-		ccls \
 		doas \
+		firefox \
 		git \
 		htop \
-		lf-bin \
-		librewolf-bin \
 		libxft \
 		maim \
 		man-db \
@@ -32,9 +30,7 @@ install_packages() {
 		mpd \
 		mpv \
 		ncmpcpp \
-		neofetch \
 		neovim \
-		nerd-fonts-jetbrains-mono \
 		npm \
 		openssh \
 		pamixer \
@@ -42,9 +38,8 @@ install_packages() {
 		picom \
 		pipewire \
 		pipewire-pulse \
-		pulseaudio-alsa \
+		sbctl \
 		stow \
-		sxiv \
 		ttf-jetbrains-mono-nerd \
 		unclutter \
 		wireplumber \
@@ -53,10 +48,17 @@ install_packages() {
 		xorg-util-macros \
 		xorg-xinit \
 		xwallpaper \
-		yay-bin \
 		zathura \
 		zathura-pdf-mupdf \
 		zsh
+
+	# AUR packages
+	yay --noremovemake --noconfirm -Syu \
+		acpilight \
+		fastfetch \
+		lf-bin \
+		nsxiv \
+		yay-bin
 
 	# conflict pipewire-jack & jack2
 	yay --noremovemake -Syu pipewire-jack

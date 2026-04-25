@@ -19,12 +19,22 @@ fi
 tx_prev=$(cat $file | sed 1q)
 rx_prev=$(cat $file | sed '2q;d')
 
-if [ -d /sys/class/net/wlo1 ]; then
-	cat /sys/class/net/wlo1/statistics/rx_bytes > $file
-	cat /sys/class/net/wlo1/statistics/tx_bytes >> $file
+# detect active interface
+if [ -d /sys/class/net/wlan0 ]; then
+	IFACE=wlan0
+elif [ -d /sys/class/net/wlo1 ]; then
+	IFACE=wlo1
+elif [ -d /sys/class/net/eth0 ]; then
+	IFACE=eth0
+elif [ -d /sys/class/net/enp8s0 ]; then
+	IFACE=enp8s0
 else
-	cat /sys/class/net/enp8s0/statistics/rx_bytes > $file
-	cat /sys/class/net/enp8s0/statistics/tx_bytes >> $file
+	exit
+fi
+
+if [ -d /sys/class/net/$IFACE ]; then
+	cat /sys/class/net/$IFACE/statistics/rx_bytes > $file
+	cat /sys/class/net/$IFACE/statistics/tx_bytes >> $file
 fi
 
 tx_now=$(cat $file | sed 1q)

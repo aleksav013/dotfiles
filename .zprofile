@@ -6,8 +6,8 @@
 #export LANG=sr_RS.UTF-8@latin
 
 # Adds `~/.local/bin` to $PATH
-tmp1=$(find ~/.local/bin -type d -printf %p:)
-tmp2=$(find ~/.cargo/bin -type d -printf %p:)
+tmp1=$(find ~/.local/bin -type d -printf %p: 2>/dev/null)
+tmp2=$(find ~/.cargo/bin -type d -printf %p: 2>/dev/null)
 
 export PATH="$PATH:${tmp1%%:}:${tmp2%%:}"
 

@@ -47,7 +47,6 @@ alias \
 	sudo="doas" \
 	ka="killall" \
 	e="$EDITOR" \
-	v="$EDITOR" \
 	p="pacman" \
 	z="zathura" \
 	ranger="lf" \
