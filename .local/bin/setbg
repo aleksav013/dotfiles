@@ -1,9 +1,9 @@
 #!/bin/sh
 
+
 if [ -f ~/.local/share/background/unnamed.jpg1 ]; then
 	xwallpaper --center ~/.local/share/background/unnamed.jpg
-else
-	mpvflags=" --hwdec --loop --no-audio --no-osd-bar --no-osc --scale=nearest --no-input-default-bindings "
+elif [ -f ~/.local/share/background/wallpaper.gif ]; then
 	xwinwrap -b -s -fs -st -sp -nf -ov -fdt -- \
-		mpv -wid WID $mpvflags ~/.local/share/background/wallpaper.gif &
+		mpv -wid WID --hwdec --loop --no-audio --no-osd-bar --no-osc --scale=nearest --no-input-default-bindings ~/.local/share/background/wallpaper.gif &
 fi

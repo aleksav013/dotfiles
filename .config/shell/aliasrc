@@ -34,32 +34,12 @@ alias \
 	diff="diff --color=auto" \
 
 
-cd_mm_os1() {
-	cd /libvirt/debian/home/aleksa/mm_os1 || exit
-}
-
-mm_os1() {
-	sudo arch-chroot /libvirt/debian /usr/bin/su aleksa -c '/bin/bash -c "cd ~/mm_os1; make qemu"'
-}
-
 cd_os1() {
-	cd /libvirt/debian/home/aleksa/os1 || exit
+	cd /debian/home/aleksa/os1 || exit
 }
 
 os1() {
-	sudo arch-chroot /libvirt/debian /usr/bin/su aleksa -c '/bin/bash -c "cd ~/os1; make qemu"'
-}
-
-os1gdb() {
-	sudo arch-chroot /libvirt/debian /usr/bin/su aleksa -c '/bin/bash -c "cd ~/os1; make qemu-gdb"'
-}
-
-cd_os2() {
-	cd /libvirt/debian/home/aleksa/os2 || exit
-}
-
-os2() {
-	sudo arch-chroot /libvirt/debian /usr/bin/su aleksa -c '/bin/bash -c "cd ~/os2; make qemu"'
+	sudo arch-chroot /debian /usr/bin/su aleksa -c '/bin/bash -c "cd ~/os1; make qemu"'
 }
 
 # These common commands are just too long! Abbreviate them.
@@ -72,4 +52,8 @@ alias \
 	z="zathura" \
 	ranger="lf" \
 	gdb="gdb -x ~/gdbinit" \
-	htop="htop --tree"
+	htop="htop --tree" \
+	k="kubectl" \
+	t="talosctl" \
+	c="cilium-cli -n cilium-system" \
+	v="VAULT_ADDR=https://vault.infra.ctf.rs vault"

@@ -7,22 +7,9 @@
 
 # Adds `~/.local/bin` to $PATH
 tmp1=$(find ~/.local/bin -type d -printf %p:)
-tmp2=$(find ~/.local/bin/dwmblocks -type d -printf %p:)
-tmp3=$(find ~/.cargo/bin -type d -printf %p:)
-tmp4=$(find ~/.local/bin/jetbrains -type d -printf %p:)
-tmp5=$(find /opt/riscv/bin -type d -printf %p:)
-tmp6=$(find ~/files/idapro-9.0/ -type d -printf %p:)
-tmp7=$(find ~/.local/share/gem/ruby/3.3.0/bin -type d -printf %p:)
-tmp8=$(find ~/.config/composer/vendor/bin -type d -printf %p:)
+tmp2=$(find ~/.cargo/bin -type d -printf %p:)
 
-export PATH="$PATH:${tmp1%%:}"
-export PATH="$PATH:${tmp2%%:}"
-export PATH="$PATH:${tmp3%%:}"
-export PATH="$PATH:${tmp4%%:}"
-export PATH="$PATH:${tmp5%%:}"
-export PATH="$PATH:${tmp6%%:}"
-export PATH="$PATH:${tmp7%%:}"
-export PATH="$PATH:${tmp8%%:}"
+export PATH="$PATH:${tmp1%%:}:${tmp2%%:}"
 
 # GPU
 export LIBVA_DRIVER_NAME=i965
@@ -35,7 +22,7 @@ unsetopt PROMPT_SP
 # Default programs:
 export EDITOR="nvim"
 export TERMINAL="st"
-export BROWSER="librewolf"
+export BROWSER="firefox"
 export OPENER="xdg-open"
 
 # ~/ Clean-up:
@@ -53,7 +40,7 @@ export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
 #export WINEPREFIX="${XDG_DATA_HOME:-$HOME/.local/share}/wineprefixes/default"
 #export KODI_DATA="${XDG_DATA_HOME:-$HOME/.local/share}/kodi"
 export PASSWORD_STORE_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/password-store"
-#export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
+export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
 export HISTFILE="${XDG_DATA_HOME:-$HOME/.local/share}/history"
 export _JAVA_OPTIONS="-Djava.util.prefs.userRoot=$XDG_CONFIG_HOME/java -Djavafx.cachedir=$XDG_CACHE_HOME/cache"
 export SQLITE_HISTORY="$XDG_DATA_HOME/sqlite_history"
@@ -67,4 +54,4 @@ export PWNDBG_NO_AUTOUPDATE=true
 
 [ ! -f "${XDG_CONFIG_HOME:-$HOME/.config}/shell/shortcutrc" ] && shortcuts >/dev/null 2>&1 &
 
-[ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && exec startx "$XINITRC"
+[ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && exec dbus-run-session startx "$XINITRC"
