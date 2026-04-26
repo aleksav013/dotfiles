@@ -19,6 +19,8 @@ install_packages() {
 	# Official repo packages
 	sudo pacman -Syu --needed --noconfirm \
 		alsa-utils \
+		bluez \
+		bluez-utils \
 		doas \
 		firefox \
 		git \
