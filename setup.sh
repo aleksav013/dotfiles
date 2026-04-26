@@ -23,6 +23,7 @@ install_packages() {
 		firefox \
 		git \
 		htop \
+		lf \
 		libxft \
 		maim \
 		man-db \
@@ -38,6 +39,7 @@ install_packages() {
 		picom \
 		pipewire \
 		pipewire-pulse \
+		rustup \
 		sbctl \
 		stow \
 		ttf-jetbrains-mono-nerd \
@@ -47,6 +49,7 @@ install_packages() {
 		xorg-server \
 		xorg-util-macros \
 		xorg-xinit \
+		xorg-xset \
 		xwallpaper \
 		zathura \
 		zathura-pdf-mupdf \
