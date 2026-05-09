@@ -1,9 +1,12 @@
 #!/bin/sh
 
-
 if [ -f ~/.local/share/background/unnamed.jpg1 ]; then
-	xwallpaper --center ~/.local/share/background/unnamed.jpg
+  xwallpaper --center ~/.local/share/background/unnamed.jpg
 elif [ -f ~/.local/share/background/wallpaper.gif ]; then
-	xwinwrap -b -s -fs -st -sp -nf -ov -fdt -- \
-		mpv -wid WID --hwdec --loop --no-audio --no-osd-bar --no-osc --scale=nearest --no-input-default-bindings ~/.local/share/background/wallpaper.gif &
+  #xwinwrap -b -s -fs -st -sp -nf -ov -fdt -- \
+  #  mpv -wid WID --hwdec --loop --no-audio --no-osd-bar --no-osc --scale=nearest --no-input-default-bindings ~/.local/share/background/wallpaper.gif &
+  xwinwrap -b -s -st -sp -nf -ov -fdt -g 1920x1200+0+0 -- \
+    mpv -wid WID --vo=gpu --gpu-api=opengl --hwdec --loop --no-audio --no-osd-bar --no-osc --scale=nearest --no-input-default-bindings ~/.local/share/background/wallpaper.gif &
+  xwinwrap -b -s -st -sp -nf -ov -fdt -g 1920x1080+1920+0 -- \
+    mpv -wid WID --vo=gpu --gpu-api=opengl --hwdec --loop --no-audio --no-osd-bar --no-osc --scale=nearest --no-input-default-bindings ~/.local/share/background/wallpaper.gif &
 fi

@@ -1,12 +1,14 @@
 #!/bin/sh
 
 IN=$(xrandr | grep "eDP" | grep " connected" | sed -e "s/\([A-Z0-9]\+\) connected.*/\1/")
-# EXT_HDMI=$(xrandr | grep "HDMI" | grep " connected" | sed -e "s/\([A-Z0-9]\+\) connected.*/\1/")
+EXT_HDMI=$(xrandr | grep "HDMI" | grep " connected" | sed -e "s/\([A-Z0-9]\+\) connected.*/\1/")
 EXT_DP=$(xrandr | grep "^HDMI" | grep " connected" | sed -e "s/\([A-Z0-9]\+\) connected.*/\1/")
 
+EXT="$EXT_HDMI"
+
 if (xrandr | grep "$EXT_DP disconnected"); then
-    #xrandr --output "$EXT_DP" --off
-    xrandr --output "$IN" --mode "1920x1200" --rate 60
+  #xrandr --output "$EXT_DP" --off
+  xrandr --output "$IN" --mode "1920x1200" --rate 60
 else
-    xrandr --output "$EXT_DP" --primary --mode "1920x1080" --rate 165 --output "$IN" --mode "1920x1200" --rate 60 --left-of "$EXT_DP"
+  xrandr --output "$EXT" --primary --mode "1920x1080" --rate 165 --output "$IN" --mode "1920x1200" --rate 144 --left-of "$EXT"
 fi
